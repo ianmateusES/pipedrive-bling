@@ -1,12 +1,21 @@
 {
   "name": "pipedrive-bling",
   "version": "1.0.0",
+  "author": "Ian Mateus",
   "description": "An integration system between Pipedrive and Bling",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node src/server.js",
-    "dev:server": "nodemon src/server.js"
+    "dev:server": "nodemon src/server.js",
+    "lint": "eslint src --ext js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmateusES/pipedrive-bling.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ianmateusES/pipedrive-bling/issues"
   },
   "dependencies": {
     "axios": "^0.21.1",

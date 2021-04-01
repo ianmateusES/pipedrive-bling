@@ -13,7 +13,7 @@ function timestamp() {
   return moment().tz('America/Sao_Paulo').format('DD/MM/YYYY HH:mm:ss Z');
 }
 
-module.exports = {
+export default {
   dir,
   winston: {
     transports: [

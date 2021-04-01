@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import logger from '../utils/logger';
 
 mongoose
   .connect(process.env.URL_CONNECT_MONGODB, {
@@ -10,5 +11,3 @@ mongoose
     logger.info('Database connection successfull', data.connection.readyState);
   })
   .catch(err => logger.error('Database connection failed', err));
-
-export default mongoose.connect;

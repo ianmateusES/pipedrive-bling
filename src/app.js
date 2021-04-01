@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import 'database/connection';
+import './database/connection';
 import express from 'express';
 import cors from 'cors';
 import { errors } from 'celebrate';

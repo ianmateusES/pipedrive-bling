@@ -24,6 +24,7 @@
     "no-console": "off",
     "no-undef":"off",
     "import/no-unresolved":"off",
-    "new-cap":"off"
+    "new-cap":"off",
+    "class-methods-use-this": "off",
   }
 }

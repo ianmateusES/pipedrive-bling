@@ -26,5 +26,6 @@
     "import/no-unresolved":"off",
     "new-cap":"off",
     "class-methods-use-this": "off",
+    "no-restricted-syntax":"off"
   }
 }

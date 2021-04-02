@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Ian Mateus",
   "description": "An integration system between Pipedrive and Bling",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "MIT",
   "scripts": {
     "start": "node src/server.js",
@@ -24,6 +24,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "js2xmlparser": "^4.0.1",
     "moment-timezone": "^0.5.33",
     "mongoose": "5.11.15",
     "winston": "^3.3.3"

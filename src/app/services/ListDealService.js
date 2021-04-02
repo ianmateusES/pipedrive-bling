@@ -8,6 +8,7 @@ class ListDealService {
     if (status) {
       Object.assign(query, { status });
     }
+
     const deals = await Deal.find(query).catch(err => {
       throw new AppError(`ListDealService, message: ${err.message}`);
     });

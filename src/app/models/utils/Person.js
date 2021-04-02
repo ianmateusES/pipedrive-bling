@@ -5,31 +5,38 @@ const PersonSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    get(data) {
-      try {
-        return JSON.parse(data);
-      } catch (err) {
-        return data;
-      }
+  email: [
+    {
+      label: {
+        type: String,
+      },
+      value: {
+        type: String,
+      },
+      primary: {
+        type: Boolean,
+      },
     },
-    set(data) {
-      return JSON.stringify(data);
+  ],
+  phone: [
+    {
+      label: {
+        type: String,
+      },
+      value: {
+        type: String,
+      },
+      primary: {
+        type: Boolean,
+      },
     },
-  },
-  phone: {
-    type: String,
-    get(data) {
-      try {
-        return JSON.parse(data);
-      } catch (err) {
-        return data;
-      }
-    },
-    set(data) {
-      return JSON.stringify(data);
-    },
+  ],
+});
+
+PersonSchema.set('toJSON', {
+  transform(doc, ret) {
+    delete ret._id;
+    delete ret.__v;
   },
 });
 

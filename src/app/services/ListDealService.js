@@ -1,24 +1,19 @@
-import logger from '../../utils/logger';
 import Deal from '../models/Deal';
 import AppError from '../../errors/AppError';
 
-class CreateDealService {
+class ListDealService {
   async execute({ status }) {
-    try {
-      const query = {};
-      if (status) {
-        Object.assign(query, { status });
-      }
-      const deals = await Deal.find(query);
+    const query = {};
 
-      return deals;
-    } catch (e) {
-      logger.error('An error has occurred in List Deal MongoDB Service:', e);
-      throw new AppError(
-        `An error has occurred in List Deal MongoDB Service: ${e.message}`,
-      );
+    if (status) {
+      Object.assign(query, { status });
     }
+    const deals = await Deal.find(query).catch(err => {
+      throw new AppError(`ListDealService, message: ${err.message}`);
+    });
+
+    return deals;
   }
 }
 
-export default CreateDealService;
+export default ListDealService;

@@ -2,12 +2,13 @@ import 'dotenv/config';
 import './database/connection';
 import express from 'express';
 import 'express-async-errors';
-import './app/schedule/totalDayDeal';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import logger from './utils/logger';
 import AppError from './errors/AppError';
 import routes from './routes';
+import './app/schedule/totalDayDeal';
+import './app/schedule/automaticIntegration';
 
 const app = express();
 

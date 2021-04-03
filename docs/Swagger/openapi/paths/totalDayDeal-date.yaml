@@ -1,0 +1,62 @@
+get:
+  tags:
+    - TotalDayDeal
+  parameters:
+    - in: query
+      name: year
+      schema:
+        type: number
+    - in: query
+      name: month
+      schema:
+        type: number
+    - in: query
+      name: day
+      schema:
+        type: number
+  summary: List all totalDayDeal date
+  description: List of all records per day in date
+  operationId: totalDayDeal-date
+  responses:
+    '200':
+      description: returns all records successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/TotalDayDeal.yaml
+    '400':
+      description: returns returns error message
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              statusCode:
+                type: number
+                example: 400
+              error:
+                type: string
+                example: "Bad Request"
+              message:
+                type: string
+                example: "celebrate request validation failed"
+              validation:
+                type: object
+                properties:
+                  query:
+                    type: object
+                    properties:
+                      source:
+                        type: string
+                        example: "query"
+                      keys:
+                        type: array
+                        items:
+                          type: string
+                          example: "day"
+                      message:
+                        type: string
+                        example: "\"day\" is required"
+

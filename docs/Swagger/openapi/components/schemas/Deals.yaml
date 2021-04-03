@@ -1,0 +1,71 @@
+type: object
+properties:
+  id:
+    description: Id of Pipedrive
+    type: number
+  title:
+    description: Deal title on Pipedrive
+    type: string
+    example: "São Luiz deal"
+  org_name:
+    description: Organization name on Pipedrive
+    type: string
+    example: "São Luiz"
+  cnpj:
+    description: date in deals YYYY-MM-DD standard
+    type: string
+    example: "01.311.875/0001-77"
+  person:
+    description: Contact person in the organization
+    type: object
+    properties:
+      email:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              description: Email type
+              type: string
+            value:
+              description: Person's email
+              type: string
+            primary:
+              description: Primary contact email
+              type: string
+      phone:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              description: Phone type
+              type: string
+            value:
+              description: Person's phone
+              type: string
+            primary:
+              description: Primary contact phone
+              type: string
+      name:
+        description: Contact name
+        type: string
+  stage_pipeline:
+    description: Drive pipeline stage
+    type: number
+  expected_close_date:
+    description: date in deals YYYY-MM-DD standard
+    type: string
+    example: "2020-12-25"
+  owner_name:
+    description: Seller's name
+    type: string
+    example: "Adan Bueno"
+  value:
+    description: Deal Value
+    type: number
+  created_at:
+    description: Date created on Mongodb
+    type: string
+    example: "2020-12-25"
+

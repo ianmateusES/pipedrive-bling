@@ -1,0 +1,18 @@
+type: object
+properties:
+  _id:
+    description: ObjectId of MongoDB
+    type: string
+  id_deals:
+    description: Deal of the day reference
+    type: array
+    items:
+      $ref: ./Deals.yaml
+  total_value:
+    description: Total day value
+    type: number
+  date:
+    description: day date in YYYY-MM-DD standard
+    type: string
+    example: "2020-12-25"
+

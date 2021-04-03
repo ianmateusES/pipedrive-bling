@@ -1,4 +1,4 @@
-export default function bodyDeals(deal) {
+function bodyDeals(deal) {
   const {
     id,
     title,
@@ -8,7 +8,7 @@ export default function bodyDeals(deal) {
     value,
     expected_close_date,
     owner_name,
-    fee6c160dc820526fd1d223930bf45027cb4f6a0: cnpj,
+    '068c7068890cdb1c5bdddb0c66f876626840ab68': cnpj,
   } = deal;
   const body = {
     id,
@@ -23,3 +23,5 @@ export default function bodyDeals(deal) {
   };
   return body;
 }
+
+export default bodyDeals;

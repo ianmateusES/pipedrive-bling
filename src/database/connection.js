@@ -10,4 +10,6 @@ mongoose
   .then(data => {
     logger.info('Database connection successfull', data.connection.readyState);
   })
-  .catch(err => logger.error('Database connection failed', err));
+  .catch(err => {
+    throw new AppError(`Database connection failed. Message: ${err}`);
+  });

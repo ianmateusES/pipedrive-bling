@@ -1,25 +1,25 @@
 import AppError from '../../errors/AppError';
+import DealRepository from '../repositories/DealRepository';
 import BlingService from './BlingService';
-import CreateDealService from './CreateDealService';
 import createOrder from '../../utils/createOrder';
-import Deal from '../models/Deal';
+import validationOrder from '../../utils/validationOrder';
 
 class CreateDealBlingService {
   constructor() {
     this.blingService = new BlingService();
-    this.createDealService = new CreateDealService();
+    this.dealRepository = new DealRepository();
   }
 
   async execute({ deals }) {
-    // Deal filter created
-    let idDealsDB = await Deal.find({}, { id: 1 });
+    validationOrder(deals);
+
+    const idDealArray = await this.dealRepository.findAllId();
 
     let filterCreateDeals = [];
-    if (idDealsDB.length) {
-      idDealsDB = idDealsDB.map(obj => obj.id);
-      filterCreateDeals = deals.filter(deal => !idDealsDB.includes(deal.id));
-    } else {
+    if (!idDealArray.length) {
       filterCreateDeals = deals;
+    } else {
+      filterCreateDeals = deals.filter(deal => !idDealArray.includes(deal.id));
     }
 
     if (!filterCreateDeals.length) {
@@ -40,9 +40,7 @@ class CreateDealBlingService {
       throw new AppError('CreateDealBlingService: Error creating Orders');
     }
 
-    const createDealDB = await this.createDealService.execute({
-      deal: dealBlingCreate,
-    });
+    const createDealDB = await this.dealRepository.create(dealBlingCreate);
 
     return createDealDB;
   }

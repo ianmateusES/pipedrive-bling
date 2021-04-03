@@ -2,15 +2,13 @@ import PipedriveService from '../services/PipedriveService';
 import CreateDealBlingService from '../services/CreateDealBlingService';
 
 const pipedrive = new PipedriveService();
-const createDealBlingService = new CreateDealBlingService();
+const createDealBling = new CreateDealBlingService();
 
 export default {
   async store(req, res) {
-    const { status } = req.query;
+    const deals = await pipedrive.execute({ status: null });
 
-    const deals = await pipedrive.execute({ status });
-
-    const createDeal = await createDealBlingService.execute({ deals });
+    const createDeal = await createDealBling.execute({ deals });
 
     return res.json(createDeal);
   },

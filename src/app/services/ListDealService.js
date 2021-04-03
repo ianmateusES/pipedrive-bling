@@ -1,17 +1,13 @@
-import Deal from '../models/Deal';
-import AppError from '../../errors/AppError';
+import DealRepository from '../repositories/DealRepository';
+// import AppError from '../../errors/AppError';
 
 class ListDealService {
-  async execute({ status }) {
-    const query = {};
+  constructor() {
+    this.dealRepository = new DealRepository();
+  }
 
-    if (status) {
-      Object.assign(query, { status });
-    }
-
-    const deals = await Deal.find(query).catch(err => {
-      throw new AppError(`ListDealService, message: ${err.message}`);
-    });
+  async execute() {
+    const deals = await this.dealRepository.findAll();
 
     return deals;
   }

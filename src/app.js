@@ -2,6 +2,7 @@ import 'dotenv/config';
 import './database/connection';
 import express from 'express';
 import 'express-async-errors';
+import './app/schedule/totalDayDeal';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import logger from './utils/logger';
@@ -26,7 +27,6 @@ app.use((err, req, res, next) => {
     });
   }
 
-  console.error(err);
   logger.error(`An error has occurred in ${err}`);
 
   return res.status(500).json({

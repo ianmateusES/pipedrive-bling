@@ -1,13 +1,13 @@
 import axios from 'axios';
 import AppError from '../../errors/AppError';
 
-class ShowOrderBling {
+class ListOrderBlingService {
   constructor() {
     this.bligApi = 'https://bling.com.br/Api/v2/pedidos/json/';
   }
 
   async execute() {
-    const orders = await axios
+    const response = await axios
       .get('https://bling.com.br/Api/v2/pedidos/json/', {
         params: {
           apikey: process.env.BLING_API_KEY,
@@ -17,8 +17,8 @@ class ShowOrderBling {
         throw new AppError(`ShowPedidosBling, message: ${err.message}`);
       });
 
-    return { data: orders.data, status: orders.status };
+    return response.data;
   }
 }
 
-export default ShowOrderBling;
+export default ListOrderBlingService;

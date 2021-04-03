@@ -39,11 +39,14 @@ const DealSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 DealSchema.set('toJSON', {
   transform(doc, ret) {
-    delete ret._id;
     delete ret.__v;
   },
 });

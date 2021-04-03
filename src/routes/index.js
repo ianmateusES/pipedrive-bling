@@ -1,19 +1,16 @@
 import { Router } from 'express';
-import DealController from '../app/controllers/DealController';
-import IntegrationController from '../app/controllers/IntegrationController';
-import DealApiPipedriveController from '../app/controllers/DealApiPipedriveController';
-import OrderApiBlingController from '../app/controllers/OrderApiBlingController';
+import blingRouter from './bling.routes';
+import pipedriveRouter from './pipedrive.routes';
+import integrationsRouter from './integrations.routes';
+import totalDealRouter from './totalDeal.routes';
+import dealRouter from './deal.routes';
 
 const routes = Router();
 
-// routes.post('/deals', DealController.store);
-
-routes.get('/deals', DealController.index);
-
-routes.get('/orders-bling', OrderApiBlingController.show);
-
-routes.get('/deals-pipedrive', DealApiPipedriveController.index);
-
-routes.post('/integrations', IntegrationController.store);
+routes.use('/pipedrive', pipedriveRouter);
+routes.use('/bling', blingRouter);
+routes.use('/integrations', integrationsRouter);
+routes.use('/total', totalDealRouter);
+routes.use('/deals', dealRouter);
 
 export default routes;

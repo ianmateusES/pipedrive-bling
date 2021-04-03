@@ -21,9 +21,9 @@
 The project aims to integrate the [Bling](https://www.bling.com.br/home) and [Pipedrive](https://www.pipedrive.com/pt) platforms through a RESTFul API, saving Won Deals from the Pipedrive platform as Orders on the Bling platform, in addition to saving this information in a MongoDB collection.
 
 ## Requirements
-- [Node v10+](https://nodejs.org/en/docs/) ou [Docker](https://docs.docker.com/)/[Docker-Compose](https://docs.docker.com/compose/)
-- [NPM](https://www.npmjs.com/) ou [Yarn](https://classic.yarnpkg.com/en/docs/)
-- API KEY nas plataformas [Bling](https://www.bling.com.br/home) e [Pipedrive](https://www.pipedrive.com/pt)
+- [Node v10+](https://nodejs.org/en/docs/) or [Docker](https://docs.docker.com/)/[Docker-Compose](https://docs.docker.com/compose/)
+- [NPM](https://www.npmjs.com/) or [Yarn](https://classic.yarnpkg.com/en/docs/)
+- KEY API on platforms [Bling](https://www.bling.com.br/home) and [Pipedrive](https://www.pipedrive.com/pt)
 
 ## Install the dependencies
 - Using npm

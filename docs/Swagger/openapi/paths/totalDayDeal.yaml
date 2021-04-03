@@ -1,0 +1,28 @@
+get:
+  tags:
+    - TotalDayDeal
+  summary: List all totalDayDeal
+  description: List of all records per day
+  operationId: totalDayDeal
+  responses:
+    '200':
+      description: returns all records successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/TotalDayDeal.yaml
+    '400':
+      description: returns returns error message
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "error"
+              message:
+                type: string
+                example: "CreateDealBlingService: You have no deals to create"

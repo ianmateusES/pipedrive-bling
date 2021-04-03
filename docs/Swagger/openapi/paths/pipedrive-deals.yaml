@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Pipedrive API
+  summary: Search deals by date
+  description: >
+    Deals with status won on a date
+  operationId: pipedrive-deals
+  responses:
+    '200':
+      description: registered Deals
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/Deals.yaml
+    '400':
+      description: returns returns error message
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "error"
+              message:
+                type: string
+                example: "PipedriveService: There are no deals"

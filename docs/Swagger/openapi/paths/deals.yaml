@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Deals
+  summary: List all deals
+  description: >
+    Deals generated on pipedrive that will be used to generate orders in bling.
+    this route returns all deals with their calculated values ​​and should also generate orders in the bling
+  operationId: deals
+  responses:
+    '200':
+      description: deals and orders successfully generated
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/Deals.yaml

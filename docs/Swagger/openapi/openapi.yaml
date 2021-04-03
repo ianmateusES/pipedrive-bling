@@ -1,0 +1,30 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  contact:
+    email: estudo.ianmateus@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: '/favicon.png'
+  description: >
+    An sample
+tags:
+  - name: Deals
+    description: Deals need to have won status to generate bling orders
+  - name: TotalDayDeal
+    description: List of all records per day
+  - name: Pipedrive API
+    description: Deals need to have won status in Pipedrive
+servers:
+  - url: 'http://localhot:3333'
+paths:
+  /deals:
+    $ref: paths/deals.yaml
+  /total/deals:
+    $ref: paths/totalDayDeal.yaml
+  /total/deals/date:
+    $ref: paths/totalDayDeal-date.yaml
+  /pipedrive/deals:
+    $ref: paths/pipedrive-deals.yaml

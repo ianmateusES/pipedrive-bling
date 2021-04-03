@@ -7,7 +7,7 @@ const totalDealRouter = Router();
 
 totalDealRouter.get('/deals', TotalDealController.index);
 
-totalDealRouter.post('/simulacao', TotalDealController.store);
+totalDealRouter.post('/simulation', TotalDealController.store);
 
 totalDealRouter.get(
   '/deals/date',

@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node -r sucrase/register src/server.js",
     "dev:server": "nodemon src/server.js",
     "lint": "eslint src --ext js"
   },
